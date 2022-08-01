@@ -1,28 +1,22 @@
+var express=require('express')
+var app=express();
 
-var express = require('express');
-var app = express();
-var path=require("path");
-var fs=require("fs");
-
-//server configuration
-app.use(express.static(path.join(__dirname,'public')));
-
-app.get('/', function (req, res) {
-   res.sendFile(path.join(___dirname + '/index.html'));
+app.get("/",(req,res)=>{
+    res.send("<h1>Welcome !!!!</h1>"
+    +"<hr/>"
+    +"<h3>Flowers</h3>"
+    +"<br/>"
+    +"<ol>"
+    +"<h4>"
+    +"<li>Rose</li>"
+    +"<li>Lotus</li>"
+    +"<li>Champa</li>"
+    +"<li>Chameli</li></h4>"
+    +"</ol>")
 });
- 
-
-app.get('/hello', function (req, res) {
-  console.log("CAlling rest api");
-  var person={firstName:'Ravi',lastName:'Tambade',age:47};
-  res.send(person);
+app.get("/aboutus",(req,res)=>{
+    res.send("<h1>Nothing to display !!</h1>")
 });
 
- 
-var server = app.listen(8081, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log("Example app listening at 8081");
-})
+app.listen(9000);
+console.log("server started at 9000");
